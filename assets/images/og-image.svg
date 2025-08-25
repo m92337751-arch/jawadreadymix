@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00d4ff"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#0b1220"/>
+  <g opacity="0.15">
+    <circle cx="260" cy="180" r="130" fill="url(#g)"/>
+    <circle cx="980" cy="220" r="160" fill="url(#g)"/>
+  </g>
+  <text x="60" y="360" font-family="Cairo, sans-serif" font-size="56" fill="#e5e7eb" font-weight="700">
+    شركة جواد للخرسانة الجاهزة والمنتجات الأسمنتية
+  </text>
+  <text x="60" y="420" font-family="Cairo, sans-serif" font-size="28" fill="#94a3b8">
+    خرسانة – بلوك – مضخات | نبني الثقة… نصبّ الجودة
+  </text>
+</svg>
+
