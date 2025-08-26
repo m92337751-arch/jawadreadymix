@@ -19,6 +19,12 @@
   <meta property="og:image" content="assets/images/og-image.svg" />
   <meta property="og:url" content="/" />
   <meta name="twitter:card" content="summary_large_image" />
+  <!-- Favicon / Logo -->
+  <link rel="icon" href="assets/images/logo.png" type="image/png" />
+  <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/images/logo.png" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#0bb3c9" />
 
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -35,8 +41,9 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "شركة جواد للخرسانة الجاهزة والمنتجات الأسمنتية",
+    "logo": "assets/images/logo.png",
     "image": "https://images.unsplash.com/photo-1531831108325-7fe9573c1d3b?q=80&w=1200&auto=format&fit=crop",
-    "url": "/",
+    "url": "https://jawadreadymix.com/",
     "telephone": "+966-569994181",
     "email": "jawad.co.2025@gmail.com",
     "address": {
@@ -52,6 +59,57 @@
       "https://www.instagram.com/"
     ],
     "openingHours": "Su-Th 07:00-18:00"
+  }
+  </script>
+  <!-- Additional Structured Data: WebSite and ItemList for products -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "شركة جواد للخرسانة الجاهزة والمنتجات الأسمنتية",
+    "url": "https://jawadreadymix.com/",
+    "inLanguage": ["ar", "en"],
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://jawadreadymix.com/#products?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "منتجات شركة جواد",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "url": "https://jawadreadymix.com/#products",
+        "item": { "@type": "Product", "name": "خرسانة جاهزة" }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "url": "https://jawadreadymix.com/#products",
+        "item": { "@type": "Product", "name": "بلوك أسمنتي (أجوف/مصمت)" }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "url": "https://jawadreadymix.com/#products",
+        "item": { "@type": "Product", "name": "إنترلوك وبلدورات" }
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "url": "https://jawadreadymix.com/#products",
+        "item": { "@type": "Product", "name": "خلطات خاصة" }
+      }
+    ]
   }
   </script>
 </head>
@@ -93,7 +151,7 @@
         <h1 class="hero-title" data-i18n="hero_title">حلول خرسانة جاهزة ومنتجات أسمنتية بمعايير عالمية</h1>
         <p class="hero-sub" data-i18n="hero_sub">أسطول خلاطات ومضخات حديثة، ضبط جودة صارم، وتسليم في الموعد لتعزيز نجاح مشاريعك.</p>
         <div class="hero-cta">
-          <a href="#contact" class="btn primary" data-i18n="hero_cta">اطلب عرض سعر الآن</a>
+          <a href="#" id="quoteBtn" class="btn primary" data-i18n="hero_cta" role="button" aria-haspopup="dialog" aria-controls="quoteSheet" aria-expanded="false">اطلب عرض سعر الآن</a>
           <a href="#products" class="btn secondary" data-i18n="hero_cta2">تعرّف على منتجاتنا</a>
         </div>
       </div>
@@ -159,6 +217,45 @@
           <span class="chip" data-i18n="prod_interlock">إنترلوك وبلدورات</span>
           <span class="chip" data-i18n="prod_special">خلطات خاصة (مقاومة كبريتات/سريعة التصلب)</span>
         </div>
+        <!-- Product descriptions in tidy cards (integrated SEO for Jeddah) -->
+        <div class="product-descriptions">
+          <article class="prod-card">
+            <h3>خرسانة جاهزة بجودة ثابتة</h3>
+            <p class="desc-ar">
+              نوفر خرسانة جاهزة في جدة بجميع المقاومات مع ضبط جودة مستمر وتسليم سريع لمواقع العمل. حلول <strong>شركة جواد للخرسانه الجاهزة والمنتجات الاسمنتيه</strong> مدعومة بأسطول خلاطات ومضخات لتوريد الخرسانة بكفاءة.
+            </p>
+            <p class="desc-en">
+              We provide ready-mix concrete in Jeddah with all strength grades, continuous QC, and on‑time delivery. Jawad Ready‑Mix & Cement Products supports you with mixer trucks and pumps for efficient concrete supply.
+            </p>
+          </article>
+          <article class="prod-card">
+            <h3>بلوك أسمنتي صلب (أجوف ومصمت)</h3>
+            <p class="desc-ar">
+              تصنيع بلوك أسمنتي في جدة بمعايير أبعاد دقيقة وتحمل ممتاز، ونستخدم <strong>أسمنتًا مقاومًا للكبريتات</strong> في صناعة البلوك عند الحاجة لظروف تربة أو مياه عدوانية، لضمان جودة ومتانة طويلة الأمد.
+            </p>
+            <p class="desc-en">
+              We manufacture concrete blocks in Jeddah with precise dimensions and excellent load capacity. For aggressive soil or water environments, we use sulfate‑resistant cement in block production to ensure durability.
+            </p>
+          </article>
+          <article class="prod-card">
+            <h3>إنترلوك وبلدورات</h3>
+            <p class="desc-ar">
+              تصميم وتنفيذ إنترلوك وبلدورات في جدة بتشكيلات متعددة ولمسات نهائية دقيقة تناسب الساحات والممرات والطرق الداخلية، مع التزام بمعايير الرصف وجودة التنفيذ.
+            </p>
+            <p class="desc-en">
+              Interlock pavers and curbstones in Jeddah with multiple patterns and high‑quality finishes for yards, walkways, and internal roads, installed to proper paving standards.
+            </p>
+          </article>
+          <article class="prod-card">
+            <h3>خلطات خاصة</h3>
+            <p class="desc-ar">
+              تطوير خلطات خاصة في جدة مثل الخرسانة المقاومة للكبريتات والخرسانة سريعة التصلب والخرسانة عالية الانسيابية، وفق مواصفات المشروع والاستشاري لتلبية تحديات المواقع المعقدة.
+            </p>
+            <p class="desc-en">
+              Special mixes in Jeddah, including sulfate‑resistant, high early‑strength, and self‑consolidating concrete, tailored to project and consultant specifications for complex sites.
+            </p>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -183,19 +280,51 @@
         <div class="grid two">
           <div>
             <div class="contact-card">
-              <p><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/966566893170" target="_blank" rel="noopener">واتساب مباشر: 0566893170</a></p>
-              <p><i class="fa-solid fa-envelope"></i> <a href="mailto:jawad.co.2025@gmail.com">jawad.co.2025@gmail.com</a></p>
-              <p><i class="fa-solid fa-location-dot"></i> <span data-i18n="contact_address">المملكة العربية السعودية – جدة – ذهبان</span></p>
-              <div style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
-                <p style="font-weight: bold; margin-bottom: 0.5rem;" data-i18n="company_numbers">أرقام هواتف الشركة:</p>
-                <p><i class="fa-solid fa-phone"></i> <a href="tel:+966569994181">0569994181</a></p>
-                <p><i class="fa-solid fa-phone"></i> <a href="tel:+966555578083">0555578083</a></p>
-                <p><i class="fa-solid fa-phone"></i> <a href="tel:+966558829393">0558829393</a></p>
-                <p><i class="fa-solid fa-phone"></i> <a href="tel:+966550939303">0550939303</a></p>
-              </div>
-              <div class="contact-actions">
-                <a class="btn primary" href="tel:+966569994181" data-i18n="contact_call">اتصل الآن</a>
-                <a class="btn secondary" href="mailto:jawad.co.2025@gmail.com" data-i18n="contact_email">أرسل بريدًا</a>
+              <h3 class="contact-title">معلومات التواصل</h3>
+              
+              <div class="contact-info">
+                <!-- كل الأرقام في شبكة موحدة -->
+                <div class="contact-item">
+                  <i class="fa-solid fa-phone"></i>
+                  <div class="contact-content">
+                    <h4>أرقام التواصل</h4>
+                    <div class="phone-grid">
+                      <a class="phone-chip" dir="ltr" href="tel:+966569994181">+966 56 999 4181</a>
+                      <a class="phone-chip" dir="ltr" href="tel:+966555578083">+966 55 557 8083</a>
+                      <a class="phone-chip" dir="ltr" href="tel:+966558829393">+966 55 882 9393</a>
+                      <a class="phone-chip" dir="ltr" href="tel:+966550939303">+966 55 093 9303</a>
+                    </div>
+                    <!-- زر واتساب بعرض كامل أسفل الأرقام -->
+                    <div class="whatsapp-wide">
+                      <a class="btn whatsapp-btn" href="https://wa.me/966566893170" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- (تم الاكتفاء بزر واتساب في الأسفل دون عرض الرقم هنا) -->
+
+                <!-- البريد الإلكتروني -->
+                <div class="contact-item">
+                  <i class="fa-solid fa-envelope"></i>
+                  <div class="contact-content">
+                    <h4>البريد الإلكتروني</h4>
+                    <div class="email-line">
+                      <div class="email-display">jawad.co.2025@gmail.com</div>
+                      <a href="mailto:jawad.co.2025@gmail.com" class="email-btn">أرسل رسالة</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- الموقع -->
+                <div class="contact-item">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <div class="contact-content">
+                    <h4>الموقع</h4>
+                    <p data-i18n="contact_address">المملكة العربية السعودية – جدة – ذهبان</p>
+                  </div>
+                </div>
+
+                
               </div>
             </div>
           </div>
@@ -211,8 +340,6 @@
   </main>
 
   <footer class="site-footer">
-      <p><i class="fa-solid fa-location-dot"></i> المملكة العربية السعودية – جدة – ذهبان</p>
-
     <div class="container footer-inner">
       <p>© <span id="year"></span> <span data-i18n="brand">شركة جواد للخرسانة الجاهزة والمنتجات الأسمنتية</span>. <span data-i18n="rights">جميع الحقوق محفوظة.</span></p>
       <div class="socials">
@@ -227,6 +354,19 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="assets/js/main.js"></script>
+
+  <!-- Quote Action Sheet -->
+  <div class="sheet-overlay" id="sheetOverlay" hidden></div>
+  <div class="action-sheet" id="quoteSheet" role="dialog" aria-modal="true" aria-labelledby="quoteTitle" hidden>
+    <div class="sheet-header">
+      <h3 id="quoteTitle">اختَر طريقة التواصل</h3>
+      <button class="sheet-close" id="sheetClose" aria-label="إغلاق"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="sheet-body">
+      <a class="btn whatsapp-btn sheet-btn" href="https://wa.me/966566893170?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%B7%D9%84%D8%A8%20%D8%B9%D8%B1%D8%B6%20%D8%B3%D8%B9%D8%B1%20%D9%85%D9%86%20%D8%B4%D8%B1%D9%83%D8%A9%20%D8%AC%D9%88%D8%A7%D8%AF" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+      <a class="btn email-btn sheet-btn" href="mailto:jawad.co.2025@gmail.com?subject=%D8%B7%D9%84%D8%A8%20%D8%B9%D8%B1%D8%B6%20%D8%B3%D8%B9%D8%B1%20-%20%D8%B4%D8%B1%D9%83%D8%A9%20%D8%AC%D9%88%D8%A7%D8%AF&body=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%AC%D9%88%20%D8%AA%D9%82%D8%AF%D9%8A%D9%85%20%D8%B9%D8%B1%D8%B6%20%D8%B3%D8%B9%D8%B1%20%D8%AD%D9%88%D9%84%3A%5Cn" rel="noopener"><i class="fa-solid fa-envelope"></i> إيميل</a>
+    </div>
+  </div>
 </body>
 </html>
 

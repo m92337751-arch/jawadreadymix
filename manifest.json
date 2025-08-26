@@ -1,0 +1,25 @@
+{
+  "name": "شركة جواد للخرسانة الجاهزة والمنتجات الأسمنتية",
+  "short_name": "جواد للخرسانة",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0b1620",
+  "theme_color": "#0bb3c9",
+  "icons": [
+    {
+      "src": "assets/images/logo.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

@@ -77,6 +77,79 @@ window.addEventListener('load', () => {
 })();
 
 
+// Quote Action Sheet (WhatsApp / Email)
+(function(){
+  function init(){
+    const btn = document.getElementById('quoteBtn');
+    const sheet = document.getElementById('quoteSheet');
+    const overlay = document.getElementById('sheetOverlay');
+    const closeBtn = document.getElementById('sheetClose');
+    if (!btn || !sheet || !overlay) return;
+
+    let lastFocus = null;
+
+    function openSheet(){
+      lastFocus = document.activeElement;
+      sheet.hidden = false;
+      overlay.hidden = false;
+      // allow CSS transitions
+      requestAnimationFrame(()=>{
+        sheet.classList.add('open');
+        overlay.classList.add('open');
+      });
+      btn.setAttribute('aria-expanded', 'true');
+      // focus first actionable element inside sheet
+      const firstBtn = sheet.querySelector('.sheet-btn, button, a, [tabindex]:not([tabindex="-1"])');
+      if (firstBtn) firstBtn.focus();
+      document.addEventListener('keydown', onKeyDown);
+    }
+
+    function closeSheet(){
+      sheet.classList.remove('open');
+      overlay.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      // wait for transition then hide
+      setTimeout(()=>{
+        sheet.hidden = true;
+        overlay.hidden = true;
+        if (lastFocus && lastFocus.focus) lastFocus.focus();
+      }, 180);
+      document.removeEventListener('keydown', onKeyDown);
+    }
+
+    function onKeyDown(e){
+      if (e.key === 'Escape') closeSheet();
+    }
+
+    if (btn.getAttribute('data-bound') !== '1'){
+      btn.addEventListener('click', (e)=>{ e.preventDefault(); openSheet(); });
+      btn.setAttribute('data-bound', '1');
+    }
+    overlay.addEventListener('click', closeSheet);
+    if (closeBtn) closeBtn.addEventListener('click', closeSheet);
+
+    // Ensure Email opens compose in the default mail app
+    const emailBtn = sheet.querySelector('.email-btn');
+    if (emailBtn && emailBtn.getAttribute('data-bound') !== '1'){
+      emailBtn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const url = emailBtn.getAttribute('href');
+        // Trigger system mail client
+        window.location.href = url;
+        // Close the sheet shortly after
+        setTimeout(closeSheet, 50);
+      });
+      emailBtn.setAttribute('data-bound', '1');
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+
 // Simple i18n
 const translations = {
   ar: {
@@ -201,4 +274,49 @@ Array.from(document.querySelectorAll('a[href^="#"]')).forEach(a => {
     }
   });
 });
+
+
+// Extra phones toggle (mobile collapsible, desktop expanded)
+(function(){
+  function applyState(){
+    const btn = document.querySelector('.toggle-extra');
+    const list = document.getElementById('extraPhones');
+    if (!list) return;
+    const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+    if (isDesktop){
+      list.hidden = false;
+      if (btn){ btn.setAttribute('aria-expanded', 'true'); btn.style.display = 'none'; }
+    } else {
+      if (btn){ btn.style.display = 'inline-flex'; }
+      // keep previous state if user toggled; default collapsed if untouched
+      if (btn && btn.getAttribute('data-initialized') !== '1'){
+        list.hidden = true;
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    }
+  }
+
+  function init(){
+    const btn = document.querySelector('.toggle-extra');
+    const list = document.getElementById('extraPhones');
+    if (!list) return;
+    if (btn && btn.getAttribute('data-bound') !== '1'){
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        list.hidden = expanded;
+        btn.setAttribute('data-initialized', '1');
+      });
+      btn.setAttribute('data-bound', '1');
+    }
+    applyState();
+    window.addEventListener('resize', applyState);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
 
